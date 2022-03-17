@@ -2,6 +2,7 @@ const Twitter = require("twitter")
 require("dotenv").config();
 var fs = require('fs');
 const cron = require('node-cron');
+const moment = require('moment')
 
 const client = new Twitter({
   consumer_key: process.env.CONSUMER_KEY,
@@ -12,7 +13,7 @@ const client = new Twitter({
 
 console.log(`Latest russia vs ukraine tweets started at ${moment().format('DD/MM/YYYY HH:mm')}`);
 
-// Trigger every day at 20h05 pm
+// Trigger every 5 minutes
 cron.schedule('05 * * * *', async () => {
   let tweetIdToRetweet;
   // Search for tweets with the query "ukraine"
