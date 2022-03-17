@@ -45,7 +45,6 @@ cron.schedule('*/5 * * * *', async () => {
       if (!tweetedTweets.tweets.includes(tweetIdToRetweet)) {
         client.post('statuses/retweet/' + tweetIdToRetweet, function (error, tweet, response) {
           if (!error) {
-            console.log(tweet);
           }
         });
 
