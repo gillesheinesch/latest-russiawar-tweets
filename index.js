@@ -14,7 +14,7 @@ const client = new Twitter({
 console.log(`Latest russia vs ukraine tweets started at ${moment().format('DD/MM/YYYY HH:mm')}`);
 
 // Trigger every 5 minutes
-cron.schedule('05 * * * *', async () => {
+cron.schedule('*/5 * * * *', async () => {
   let tweetIdToRetweet;
   // Search for tweets with the query "ukraine"
   client.get('search/tweets', {
